@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Behram Fragrance | Luxury Perfumes</title>
+  <meta name="description" content="Discover exclusive luxury perfumes at Behram Fragrance. Shop premium fragrances with exclusive discounts. Order online or via WhatsApp." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0c0c0c;
+      --bg-card: #161616;
+      --bg-elevated: #1c1c1c;
+      --text: #f5f5f5;
+      --text-muted: #a3a3a3;
+      --accent: #c9a962;
+      --accent-hover: #dbb978;
+      --accent-dark: #a88b45;
+      --border: #2a2a2a;
+      --success: #4ade80;
+      --danger: #f87171;
+      --radius: 12px;
+      --shadow: 0 10px 40px rgba(0,0,0,0.45);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1200px, 92%);
+      margin-inline: auto;
+    }
+
+    /* ========== NAVBAR ========== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(12, 12, 12, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    .navbar.scrolled {
+      background: rgba(12, 12, 12, 0.95);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.4);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.55rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: var(--accent);
+    }
+
+    .logo span {
+      color: var(--text);
+      font-weight: 400;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: color 0.25s;
+      position: relative;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--accent);
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1.5px;
+      background: var(--accent);
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .cart-btn {
+      position: relative;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+
+    .cart-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      background: var(--accent);
+      color: #0c0c0c;
+      font-size: 0.7rem;
+      font-weight: 700;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* ========== HERO ========== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding-top: 72px;
+      background:
+        linear-gradient(135deg, rgba(12,12,12,0.92) 0%, rgba(12,12,12,0.7) 50%, rgba(12,12,12,0.85) 100%),
+        url('https://images.unsplash.com/photo-1541643600914-78b084683601?w=1600&q=80') center/cover no-repeat;
+    }
+
+    .hero-content {
+      max-width: 640px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(201, 169, 98, 0.15);
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      margin-bottom: 1.5rem;
+      border: 1px solid rgba(201, 169, 98, 0.3);
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 6vw, 4.2rem);
+      font-weight: 600;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      max-width: 480px;
+    }
+
+    .hero-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.9rem 1.8rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #0c0c0c;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(201, 169, 98, 0.35);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1.5px solid var(--border);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .btn-whatsapp {
+      background: #25D366;
+      color: white;
+    }
+
+    .btn-whatsapp:hover {
+      background: #1ebe57;
+      transform: translateY(-2px);
+    }
+
+    /* ========== SECTION ========== */
+    section {
+      padding: 5.5rem 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .section-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      max-width: 520px;
+      margin-inline: auto;
+    }
+
+    .section-label {
+      display: inline-block;
+      color: var(--accent);
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    /* ========== PRODUCTS ========== */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.75rem;
+    }
+
+    .product-card {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: all 0.35s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(201, 169, 98, 0.4);
+      box-shadow: var(--shadow);
+    }
+
+    .product-img-wrap {
+      position: relative;
+      aspect-ratio: 1 / 1.1;
+      overflow: hidden;
+      background: #111;
+    }
+
+    .product-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .product-card:hover .product-img-wrap img {
+      transform: scale(1.06);
+    }
+
+    .discount-badge {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      background: var(--accent);
+      color: #0c0c0c;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.3rem 0.7rem;
+      border-radius: 50px;
+    }
+
+    .product-body {
+      padding: 1.25rem 1.35rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .product-category {
+      font-size: 0.75rem;
+      color: var(--accent);
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 0.35rem;
+    }
+
+    .product-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .product-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      flex: 1;
+    }
+
+    .product-price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 0.6rem;
+      margin-bottom: 1.1rem;
+    }
+
+    .price-current {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .price-original {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      text-decoration: line-through;
+    }
+
+    .product-actions {
+      display: flex;
+      gap: 0.6rem;
+    }
+
+    .btn-sm {
+      padding: 0.65rem 1rem;
+      font-size: 0.85rem;
+      flex: 1;
+    }
+
+    .btn-cart {
+      background: var(--bg-elevated);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-cart:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* ========== ABOUT ========== */
+    .about {
+      background: var(--bg-elevated);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-img {
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .about-img img {
+      width: 100%;
+      height: 420px;
+      object-fit: cover;
+    }
+
+    .about-content h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .about-content p {
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .about-stats {
+      display: flex;
+      gap: 2.5rem;
+      margin-top: 2rem;
+    }
+
+    .stat h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--accent);
+    }
+
+    .stat p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    /* ========== FEATURES ========== */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem;
+      text-align: center;
+      transition: border-color 0.3s;
+    }
+
+    .feature-card:hover {
+      border-color: rgba(201, 169, 98, 0.4);
+    }
+
+    .feature-icon {
+      width: 56px;
+      height: 56px;
+      background: rgba(201, 169, 98, 0.12);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.1rem;
+      font-size: 1.4rem;
+      color: var(--accent);
+    }
+
+    .feature-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* ========== CONTACT / ORDER ========== */
+    .contact-section {
+      background: linear-gradient(180deg, var(--bg) 0%, #111 100%);
+    }
+
+    .contact-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 3rem;
+      text-align: center;
+      max-width: 700px;
+      margin-inline: auto;
+    }
+
+    .contact-box h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .contact-box p {
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .whatsapp-big {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: #25D366;
+      color: white;
+      padding: 1rem 2.2rem;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .whatsapp-big:hover {
+      background: #1ebe57;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.35);
+    }
+
+    /* ========== FOOTER ========== */
+    footer {
+      background: #080808;
+      border-top: 1px solid var(--border);
+      padding: 3rem 0 1.5rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .footer-brand .logo {
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .footer-brand p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      max-width: 280px;
+    }
+
+    .footer-col h4 {
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-col a {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      transition: color 0.25s;
+    }
+
+    .footer-col a:hover {
+      color: var(--accent);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 1.5rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    /* ========== CART DRAWER ========== */
+    .cart-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 2000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s;
+    }
+
+    .cart-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: min(400px, 100%);
+      height: 100%;
+      background: var(--bg-card);
+      z-index: 2001;
+      transform: translateX(100%);
+      transition: transform 0.35s ease;
+      display: flex;
+      flex-direction: column;
+      border-left: 1px solid var(--border);
+    }
+
+    .cart-drawer.open {
+      transform: translateX(0);
+    }
+
+    .cart-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cart-header h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+    }
+
+    .close-cart {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.5rem;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .close-cart:hover {
+      color: var(--text);
+    }
+
+    .cart-items {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1rem 1.5rem;
+    }
+
+    .cart-empty {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--text-muted);
+    }
+
+    .cart-item {
+      display: flex;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cart-item img {
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .cart-item-info {
+      flex: 1;
+    }
+
+    .cart-item-name {
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .cart-item-price {
+      color: var(--accent);
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .cart-item-qty {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .qty-btn {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+    }
+
+    .qty-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .remove-item {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 0.8rem;
+      margin-top: 0.35rem;
+    }
+
+    .remove-item:hover {
+      color: var(--danger);
+    }
+
+    .cart-footer {
+      padding: 1.25rem 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .cart-total {
+      display: flex;
+      justify-content: space-between;
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+    }
+
+    .cart-total span:last-child {
+      color: var(--accent);
+    }
+
+    .cart-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    /* ========== FLOATING WHATSAPP ========== */
+    .float-wa {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 58px;
+      height: 58px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 25px rgba(37, 211, 102, 0.45);
+      z-index: 999;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .float-wa:hover {
+      transform: scale(1.08);
+      box-shadow: 0 8px 30px rgba(37, 211, 102, 0.55);
+    }
+
+    .float-wa svg {
+      width: 30px;
+      height: 30px;
+      fill: white;
+    }
+
+    /* ========== TOAST ========== */
+    .toast {
+      position: fixed;
+      bottom: 100px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--bg-elevated);
+      border: 1px solid var(--accent);
+      color: var(--text);
+      padding: 0.85rem 1.5rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      z-index: 3000;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.35s;
+      box-shadow: var(--shadow);
+    }
+
+    .toast.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 900px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .about-img img {
+        height: 320px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: var(--bg-card);
+        flex-direction: column;
+        padding: 1.5rem;
+        gap: 1rem;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .hero {
+        min-height: 85vh;
+      }
+
+      .about-stats {
+        gap: 1.5rem;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .contact-box {
+        padding: 2rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="#" class="logo">Behram <span>Fragrance</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#products">Shop</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="cart-btn" id="cartBtn" aria-label="Open cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 01-8 0"/>
+          </svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <button class="menu-toggle" id="menuToggle" aria-label="Menu">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-content">
+        <span class="hero-badge">Luxury Fragrances</span>
+        <h1>Discover Your <span>Signature</span> Scent</h1>
+        <p>Premium perfumes crafted for elegance. Exclusive discounts on our handpicked collection. Shop online or order instantly on WhatsApp.</p>
+        <div class="hero-btns">
+          <a href="#products" class="btn btn-primary">Shop Collection</a>
+          <a href="https://wa.me/923001234567?text=Hi%20Behram%20Fragrance%2C%20I%20want%20to%20order%20perfumes" class="btn btn-whatsapp" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Order on WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section id="products">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Our Collection</span>
+        <h2>Premium Perfumes</h2>
+        <p>10 exclusive fragrances with limited-time discounts. Free shipping on orders over Rs. 5,000.</p>
+      </div>
+      <div class="products-grid" id="productsGrid">
+        <!-- Products injected by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section style="padding-top: 0;">
+    <div class="container">
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🚚</div>
+          <h3>Fast Delivery</h3>
+          <p>Nationwide delivery across Pakistan within 2-4 days.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">✨</div>
+          <h3>100% Authentic</h3>
+          <p>Genuine premium quality fragrances, no fakes.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💬</div>
+          <h3>WhatsApp Support</h3>
+          <p>Order & get help instantly on WhatsApp anytime.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎁</div>
+          <h3>Gift Ready</h3>
+          <p>Beautiful packaging perfect for gifting.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-img">
+          <img src="https://images.unsplash.com/photo-1595425970377-c9703cf48b6d?w=800&q=80" alt="Luxury perfume bottles" loading="lazy" />
+        </div>
+        <div class="about-content">
+          <span class="section-label">Our Story</span>
+          <h2>The Art of Fragrance</h2>
+          <p>Behram Fragrance was born from a passion for exceptional scents. We carefully curate and offer premium perfumes that leave a lasting impression.</p>
+          <p>Every bottle in our collection is selected for quality, longevity, and unique character — so you can find a fragrance that truly feels like you.</p>
+          <div class="about-stats">
+            <div class="stat">
+              <h3>500+</h3>
+              <p>Happy Customers</p>
+            </div>
+            <div class="stat">
+              <h3>10+</h3>
+              <p>Signature Scents</p>
+            </div>
+            <div class="stat">
+              <h3>4.9★</h3>
+              <p>Average Rating</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="contact-box">
+        <span class="section-label">Get in Touch</span>
+        <h2>Ready to Order?</h2>
+        <p>Add items to your cart and checkout, or message us directly on WhatsApp for quick ordering and personalized recommendations.</p>
+        <a href="https://wa.me/923001234567?text=Hi%20Behram%20Fragrance%2C%20I%20would%20like%20to%20place%20an%20order" class="whatsapp-big" target="_blank" rel="noopener">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Chat on WhatsApp
+        </a>
+        <p style="margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-muted);">
+          Replace the number <strong>+92 300 1234567</strong> with your real WhatsApp number in the code.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="logo">Behram <span>Fragrance</span></a>
+          <p>Premium luxury perfumes delivered across Pakistan. Authentic scents, exclusive prices.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#products">Shop</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="https://wa.me/923001234567" target="_blank">WhatsApp Order</a></li>
+            <li><a href="mailto:hello@behramfragrance.com">hello@behramfragrance.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Behram Fragrance. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CART DRAWER -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>Your Cart</h3>
+      <button class="close-cart" id="closeCart">×</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-footer" id="cartFooter" style="display:none;">
+      <div class="cart-total">
+        <span>Total</span>
+        <span id="cartTotal">Rs. 0</span>
+      </div>
+      <div class="cart-actions">
+        <button class="btn btn-whatsapp" id="waCheckout" style="width:100%;">
+          Order via WhatsApp
+        </button>
+        <button class="btn btn-outline" id="clearCart" style="width:100%;">Clear Cart</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLOATING WHATSAPP -->
+  <a href="https://wa.me/923001234567?text=Hi%20Behram%20Fragrance%2C%20I%20need%20help%20with%20an%20order" class="float-wa" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast">Added to cart</div>
+
+  <script>
+    // ========== PRODUCTS DATA ==========
+    const products = [
+      {
+        id: 1,
+        name: "Midnight Oud",
+        category: "Oriental",
+        desc: "Deep woody oud with smoky amber notes. Long-lasting and bold.",
+        price: 3599,
+        original: 4500,
+        discount: 20,
+        image: "https://images.unsplash.com/photo-1541643600914-78b084683601?w=500&q=80"
+      },
+      {
+        id: 2,
+        name: "Royal Amber",
+        category: "Warm & Spicy",
+        desc: "Luxurious amber blended with vanilla and soft spices.",
+        price: 2999,
+        original: 3800,
+        discount: 21,
+        image: "https://images.unsplash.com/photo-1594035910387-fea47794261f?w=500&q=80"
+      },
+      {
+        id: 3,
+        name: "Velvet Rose",
+        category: "Floral",
+        desc: "Romantic Bulgarian rose with a soft powdery finish.",
+        price: 2799,
+        original: 3500,
+        discount: 20,
+        image: "https://images.unsplash.com/photo-1587017539504-67cfbddac569?w=500&q=80"
+      },
+      {
+        id: 4,
+        name: "Ocean Breeze",
+        category: "Fresh",
+        desc: "Crisp aquatic notes with citrus and sea salt.",
+        price: 2499,
+        original: 3200,
+        discount: 22,
+        image: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=500&q=80"
+      },
+      {
+        id: 5,
+        name: "Golden Sand",
+        category: "Woody",
+        desc: "Warm sandalwood with golden saffron and musk.",
+        price: 3299,
+        original: 4100,
+        discount: 20,
+        image: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=500&q=80"
+      },
+      {
+        id: 6,
+        name: "Black Noir",
+        category: "Dark & Bold",
+        desc: "Intense black pepper, leather and dark woods.",
+        price: 3699,
+        original: 4600,
+        discount: 20,
+        image: "https://images.unsplash.com/photo-1615634260167-c8cdede054de?w=500&q=80"
+      },
+      {
+        id: 7,
+        name: "White Musk",
+        category: "Clean",
+        desc: "Soft white musk with cotton and light florals.",
+        price: 2399,
+        original: 3000,
+        discount: 20,
+        image: "https://images.unsplash.com/photo-1458538977777-0549b2370168?w=500&q=80"
+      },
+      {
+        id: 8,
+        name: "Citrus Bloom",
+        category: "Citrus",
+        desc: "Bright bergamot, lemon and neroli for everyday freshness.",
+        price: 2199,
+        original: 2800,
+        discount: 21,
+        image: "https://images.unsplash.com/photo-1595425970377-c9703cf48b6d?w=500&q=80"
+      },
+      {
+        id: 9,
+        name: "Oriental Spice",
+        category: "Spicy",
+        desc: "Exotic cardamom, cinnamon and incense.",
+        price: 2899,
+        original: 3600,
+        discount: 19,
+        image: "https://images.unsplash.com/photo-1619994403073-2cec844b8e63?w=500&q=80"
+      },
+      {
+        id: 10,
+        name: "Pure Silk",
+        category: "Elegant",
+        desc: "Silky iris, soft woods and a creamy dry-down.",
+        price: 3499,
+        original: 4300,
+        discount: 19,
+        image: "https://images.unsplash.com/photo-1547887537-6158d64c35b3?w=500&q=80"
+      }
+    ];
+
+    // ========== STATE ==========
+    let cart = JSON.parse(localStorage.getItem('behramCart')) || [];
+
+    // ========== RENDER PRODUCTS ==========
+    function renderProducts() {
+      const grid = document.getElementById('productsGrid');
+      grid.innerHTML = products.map(p => `
+        <article class="product-card">
+          <div class="product-img-wrap">
+            <img src="${p.image}" alt="${p.name}" loading="lazy" />
+            <span class="discount-badge">-${p.discount}%</span>
+          </div>
+          <div class="product-body">
+            <div class="product-category">${p.category}</div>
+            <h3 class="product-name">${p.name}</h3>
+            <p class="product-desc">${p.desc}</p>
+            <div class="product-price-row">
+              <span class="price-current">Rs. ${p.price.toLocaleString()}</span>
+              <span class="price-original">Rs. ${p.original.toLocaleString()}</span>
+            </div>
+            <div class="product-actions">
+              <button class="btn btn-sm btn-cart" onclick="addToCart(${p.id})">Add to Cart</button>
+              <a href="https://wa.me/923001234567?text=${encodeURIComponent('Hi Behram Fragrance, I want to order: ' + p.name + ' (Rs. ' + p.price + ')')}" 
+                 class="btn btn-sm btn-whatsapp" target="_blank" rel="noopener">WhatsApp</a>
+            </div>
+          </div>
+        </article>
+      `).join('');
+    }
+
+    // ========== CART FUNCTIONS ==========
+    function saveCart() {
+      localStorage.setItem('behramCart', JSON.stringify(cart));
+      updateCartUI();
+    }
+
+    function addToCart(id) {
+      const product = products.find(p => p.id === id);
+      const existing = cart.find(item => item.id === id);
+      if (existing) {
+        existing.qty += 1;
+      } else {
+        cart.push({ ...product, qty: 1 });
+      }
+      saveCart();
+      showToast(`${product.name} added to cart`);
+    }
+
+    function removeFromCart(id) {
+      cart = cart.filter(item => item.id !== id);
+      saveCart();
+    }
+
+    function updateQty(id, delta) {
+      const item = cart.find(i => i.id === id);
+      if (!item) return;
+      item.qty += delta;
+      if (item.qty <= 0) removeFromCart(id);
+      else saveCart();
+    }
+
+    function clearCart() {
+      cart = [];
+      saveCart();
+    }
+
+    function getCartTotal() {
+      return cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+    }
+
+    function updateCartUI() {
+      const countEl = document.getElementById('cartCount');
+      const itemsEl = document.getElementById('cartItems');
+      const footerEl = document.getElementById('cartFooter');
+      const totalEl = document.getElementById('cartTotal');
+
+      const totalQty = cart.reduce((s, i) => s + i.qty, 0);
+      countEl.textContent = totalQty;
+
+      if (cart.length === 0) {
+        itemsEl.innerHTML = `<div class="cart-empty"><p>Your cart is empty</p><p style="font-size:0.85rem;margin-top:0.5rem;">Add some fragrances!</p></div>`;
+        footerEl.style.display = 'none';
+        return;
+      }
+
+      footerEl.style.display = 'block';
+      totalEl.textContent = `Rs. ${getCartTotal().toLocaleString()}`;
+
+      itemsEl.innerHTML = cart.map(item => `
+        <div class="cart-item">
+          <img src="${item.image}" alt="${item.name}" />
+          <div class="cart-item-info">
+            <div class="cart-item-name">${item.name}</div>
+            <div class="cart-item-price">Rs. ${item.price.toLocaleString()}</div>
+            <div class="cart-item-qty">
+              <button class="qty-btn" onclick="updateQty(${item.id}, -1)">−</button>
+              <span>${item.qty}</span>
+              <button class="qty-btn" onclick="updateQty(${item.id}, 1)">+</button>
+            </div>
+            <button class="remove-item" onclick="removeFromCart(${item.id})">Remove</button>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function openCart() {
+      document.getElementById('cartDrawer').classList.add('open');
+      document.getElementById('cartOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeCart() {
+      document.getElementById('cartDrawer').classList.remove('open');
+      document.getElementById('cartOverlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    function checkoutWhatsApp() {
+      if (cart.length === 0) return;
+      let message = "Hi Behram Fragrance, I would like to order:\n\n";
+      cart.forEach(item => {
+        message += `• ${item.name} × ${item.qty} — Rs. ${(item.price * item.qty).toLocaleString()}\n`;
+      });
+      message += `\nTotal: Rs. ${getCartTotal().toLocaleString()}`;
+      const url = `https://wa.me/923001234567?text=${encodeURIComponent(message)}`;
+      window.open(url, '_blank');
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toast');
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => toast.classList.remove('show'), 2200);
+    }
+
+    // ========== EVENT LISTENERS ==========
+    document.getElementById('cartBtn').addEventListener('click', openCart);
+    document.getElementById('closeCart').addEventListener('click', closeCart);
+    document.getElementById('cartOverlay').addEventListener('click', closeCart);
+    document.getElementById('clearCart').addEventListener('click', clearCart);
+    document.getElementById('waCheckout').addEventListener('click', checkoutWhatsApp);
+
+    document.getElementById('menuToggle').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+
+    // Navbar scroll
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // Active nav link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('navLinks').classList.remove('open');
+      });
+    });
+
+    // Init
+    renderProducts();
+    updateCartUI();
+  </script>
+</body>
+</html>
